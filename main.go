@@ -209,7 +209,7 @@ func parseInodeSection(info *pb.FileSummary_Section, imageFile *os.File) (map[In
 
 func parseInodeDirectorySection(info *pb.FileSummary_Section, imageFile *os.File) map[ParentId][]uint64 {
 	var (
-		parChildrenMap = make(map[ParentId][]uint64)
+		parChildrenMap1 = make(map[ParentId][]uint64)
 	)
 	startPos := int64(info.GetOffset())
 	length := info.GetLength()
@@ -229,9 +229,9 @@ func parseInodeDirectorySection(info *pb.FileSummary_Section, imageFile *os.File
 		}
 		parent := ParentId(dirEntry.GetParent())
 		children := dirEntry.GetChildren()
-		parChildrenMap[parent] = children
+		parChildrenMap1[parent] = children
 		a -= newPos
 		dirSectionBytes = dirSectionBytes[newPos:]
 	}
-	return parChildrenMap
+	return parChildrenMap1
 }
