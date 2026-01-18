@@ -3,6 +3,7 @@ package main
 import (
 	"sort"
 	"strconv"
+		pb "main/pkg/hadoop_hdfs_fsimage"
 )
 
 const (
@@ -34,6 +35,7 @@ type INode struct {
 	Name []byte
 	Id   InodeId
 	Type int
+		ProtoNode *pb.INodeSection_INode
 }
 
 func (i ChildrenCount) String() string {
