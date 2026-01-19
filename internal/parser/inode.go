@@ -55,8 +55,6 @@ func (parser *FSImageParser) DecodeInode() (*pb.INodeSection, error) {
 		default:
 			fmt.Println("symlink", string(inode.GetName()))
 		}
-
-		// fmt.Printf("[%d] Файл: %s (Access: %d)\n", i, inode.Name, inode.File.GetAccessTime())
 	}
 	return inodeSection, nil
 

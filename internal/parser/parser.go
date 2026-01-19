@@ -19,8 +19,24 @@ type fsimageFileAttr struct {
 	fsImageStats os.FileInfo
 }
 
+type outputFormat struct {
+	Path               string
+	Replication        uint32
+	ModificationTime   string
+	AccessTime         string
+	PreferredBlockSize uint64
+	BlocksCount        int
+	FileSize           uint64
+	NSQUOTA            int64
+	DSQUOTA            int64
+	Permission         string
+	UserName           string
+	GroupName          string
+}
+
 type FSImageParser struct {
 	summarySection map[string]*pb.FileSummary_Section
+	output         []outputFormat
 	fsimageFileAttr
 }
 
